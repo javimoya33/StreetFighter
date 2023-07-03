@@ -1,0 +1,98 @@
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			font-family: 'Press Start 2P', cursive;
+		}
+
+		@mixin size($size) {
+		  width: $size;
+		  height: $size;
+		}
+
+		@mixin abs-pos {
+		  display: block;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+
+		html {
+		  box-sizing: border-box;
+		}
+
+		*,
+		*:before,
+		*:after {
+		  box-sizing: inherit;
+		  margin: 0;
+		  padding: 0;
+		}
+
+		.bodythunder {
+		  background-color: #222;
+		  background-image: url('https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5X0NEUXFVd0NBcWc');
+		  background-size: cover;
+		  background-position: 0 0;
+		  background-repeat: no-repeat;
+		  position: relative;
+		  z-index: 0;
+		}
+
+		.canvasstorm {
+		  position: absolute;
+		}
+
+		#canvas3 {
+		  z-index: 5;
+		}
+
+		#canvas2 {
+		  z-index: 10;
+		}
+
+		#canvas1 {
+		  z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<!-- Red container div -->
+	<div style="position: absolute; display: inline-block;">
+		<!-- Smaller red container div -->
+		<div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 20px;">
+			<!-- Player health -->
+			<div style="position: relative; width: 100%; display: flex; justify-content: flex-end; border-top: 4px solid white; border-left: 4px solid white; border-bottom: 4px solid white;">
+				<div style="background-color: red; height: 30px; width: 100%;"></div>
+				<div id="playerHealth" style="position: absolute; background: #818CF8; top: 0; right: 0; bottom: 0; width: 100%;"></div>	
+			</div>
+			<!-- Timer -->
+			<div id="timer" style="background-color: black; color: white; width: 100px; height: 100px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+				100
+			</div>
+			<!-- Enemy health -->
+			<div style="position: relative; width: 100%; display: flex; border-top: 4px solid white; border-right: 4px solid white; border-bottom: 4px solid white;">
+				<div style="background-color: red; height: 30px; width: 100%"></div>
+				<div id="enemyHealth" style="position: absolute; background: #818CF8; top: 0; right: 0; bottom: 0; left: 0;"></div>	
+			</div>
+			<div></div>
+		</div>
+		<div id="displayText" style="position: absolute; color: white; display: flex; align-items: center; justify-content: center; top: 0; right: 0; bottom: 0; left: 0; display: none;">Tie</div>
+		<canvas></canvas>
+	</div>
+	<div class="bodythunder">
+		<div class="thunder">
+			<canvas id="canvas1" class="canvasstorm"></canvas>
+			<canvas id="canvas2" class="canvasstorm"></canvas>
+			<canvas id="canvas3" class="canvasstorm"></canvas>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/classes.js"></script>
+	<script type="text/javascript" src="js/storm.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
